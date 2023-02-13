@@ -1,0 +1,21 @@
+<h1>New game</h1>
+
+  <div class="d-flex justify-content-evenly fs-1">
+    <% @letters.each do |letter| %>
+      <div class="rounded p-3 border-3 bg-danger text-light">
+      <%= letter %>
+      </div>
+    <% end %>
+  </div>
+  <br>
+  <form action="/score" method="post" data-turbo="false">
+    <label for="word" class="form-label">What is the longest word you can find?</label>
+    <input type="text" name="word" placeholder="word" class="form-control">
+    <br>
+    <input type="submit" class="btn btn-danger" value="Play">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <%= hidden_field_tag :letters, @letters %>
+  </form>
+
+<%# #how to set the button aside
+#how to create a border between letters %>
